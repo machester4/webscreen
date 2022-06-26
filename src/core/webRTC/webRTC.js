@@ -1,4 +1,4 @@
-import Peer from "simple-peer";
+import { Peer } from "simple-peer";
 import { findOffer, tellToOfferSendSignal } from "../signaling";
 import { transformFromPixelsToPercent } from "../util";
 
