@@ -7,6 +7,7 @@ import NodeModulesPolyfills from "@esbuild-plugins/node-modules-polyfill";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/webscreen/",
   optimizeDeps: {
     esbuildOptions: {
       plugins: [
