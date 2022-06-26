@@ -31,13 +31,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install pnpm
-        run: npx pnpm add -g pnpm
-
-      - name: Install packages using pnpm
+      - name: Install packages
+        uses: pnpm/action-setup@v2.2.2
         run: pnpm install
 
       - name: Build app
+        uses: pnpm/action-setup@v2.2.2
         run: pnpm run build:prod
 
       - name: GitHub Pages
