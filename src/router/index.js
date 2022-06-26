@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 
 const router = createRouter({
-  history: createWebHistory("/webscreen/"),
+  history: createWebHashHistory(),
   routes: [
     {
       path: "/remote/:code",
