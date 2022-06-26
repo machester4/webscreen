@@ -22,6 +22,7 @@ export default defineConfig({
     },
   },
   plugins: [vue()],
+  base: "/webscreen/",
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
