@@ -7,6 +7,7 @@
         id="video"
         ref="video"
         @click.prevent="handleClick"
+        muted="muted"
       />
     </div>
   </div>
