@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
 const router = createRouter({
-  history: VueRouter.createWebHashHistory(),
+  history: createWebHashHistory(),
   routes: [
     {
       path: "/remote/:code",
