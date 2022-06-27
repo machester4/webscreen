@@ -10,7 +10,7 @@ export async function connectWithOffer(code) {
       config: {
         iceServers: [
           {
-            urls: "turn:54.166.44.24?3478?transport=tcp",
+            urls: "turn:54.166.44.24:3478?transport=tcp",
             username: "root",
             credential: "toor",
           },
