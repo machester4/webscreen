@@ -10,22 +10,9 @@ export async function connectWithOffer(code) {
       config: {
         iceServers: [
           {
-            urls: "stun:openrelay.metered.ca:80",
-          },
-          {
-            urls: "turn:openrelay.metered.ca:80",
-            username: "openrelayproject",
-            credential: "openrelayproject",
-          },
-          {
-            urls: "turn:openrelay.metered.ca:443",
-            username: "openrelayproject",
-            credential: "openrelayproject",
-          },
-          {
-            urls: "turn:openrelay.metered.ca:443?transport=tcp",
-            username: "openrelayproject",
-            credential: "openrelayproject",
+            urls: "turn:54.166.44.24?3478?transport=tcp",
+            username: "root",
+            credential: "toor",
           },
         ],
       },
