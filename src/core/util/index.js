@@ -13,7 +13,7 @@
  */
 export function transformFromPixelsToPercent(x, y, size) {
   const { width, height } = size;
-  const percentX = parseFloat((x * 100) / width).toFixed(2);
-  const percentY = parseFloat((y * 100) / height).toFixed(2);
+  const percentX = parseFloat((x * 100) / width);
+  const percentY = parseFloat((y * 100) / height);
   return { x: percentX, y: percentY };
 }

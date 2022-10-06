@@ -29,13 +29,21 @@ export async function connectWithOffer(code) {
     });
 
     const facade = {
+      sendMouseMove(x, y, size) {
+        const event = {
+          move: true,
+          ...transformFromPixelsToPercent(x, y, size),
+        };
+        console.log(event);
+        p.write(JSON.stringify(event));
+      },
       mouseClick(x, y, size) {
         const event = {
           click: true,
           ...transformFromPixelsToPercent(x, y, size),
         };
         console.log(event);
-        p.send(JSON.stringify(event));
+        p.write(JSON.stringify(event));
       },
       onConnect(callback) {
         p.on("connect", callback);

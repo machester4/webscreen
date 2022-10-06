@@ -3,10 +3,11 @@
     <StatusBanner :status="connectionState" @disconnect="handleDisconnect" />
     <div class="flex-1">
       <video
-        class="h-fit w-full border-dashed border-2 border-slate-500"
+        class="h-fit w-full"
         id="video"
         ref="video"
         @click.prevent="handleClick"
+        @mousemove="handleMouseMove"
         muted="muted"
       />
     </div>
@@ -63,11 +64,15 @@ export default {
     onDisconnect() {
       this.connected = false;
     },
+    handleMouseMove(event) {
+      const { clientX, clientY } = event;
+      const video = document.getElementById("video");
+      const size = { width: video.offsetWidth, height: video.offsetHeight };
+      this.rtcInstance.sendMouseMove(clientX, clientY, size);
+    },
     handleClick(e) {
       console.log("click");
       const { offsetX, offsetY } = e;
-      const video = document.getElementById("video");
-      const size = { width: video.offsetWidth, height: video.offsetHeight };
       this.rtcInstance.mouseClick(offsetX, offsetY, size);
     },
     handleDisconnect() {
