@@ -37,7 +37,7 @@ export async function connectWithOffer(code) {
         console.log(event);
         p.write(JSON.stringify(event));
       },
-      mouseClick(x, y, size) {
+      sendMouseClick(x, y, size) {
         const event = {
           click: true,
           ...transformFromPixelsToPercent(x, y, size),

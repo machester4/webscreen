@@ -1,13 +1,13 @@
 <template>
-  <div class="flex flex-col flex-1 justify-center bg-black">
+  <div class="flex flex-col flex-1 justify-center bg-slate-800">
     <StatusBanner :status="connectionState" @disconnect="handleDisconnect" />
     <div class="flex-1">
       <video
-        class="h-fit w-full"
+        class="h-fit w-full border-dashed border-2 border-slate-500"
         id="video"
         ref="video"
-        @click.prevent="handleClick"
-        @mousemove="handleMouseMove"
+        @click.prevent="handleMouseClick"
+        @mousemove.prevent="handleMouseMove"
         muted="muted"
       />
     </div>
@@ -70,10 +70,10 @@ export default {
       const size = { width: video.offsetWidth, height: video.offsetHeight };
       this.rtcInstance.sendMouseMove(clientX, clientY, size);
     },
-    handleClick(e) {
+    handleMouseClick(e) {
       console.log("click");
       const { offsetX, offsetY } = e;
-      this.rtcInstance.mouseClick(offsetX, offsetY, size);
+      this.rtcInstance.sendMouseClick(offsetX, offsetY, size);
     },
     handleDisconnect() {
       this.$router.go(-1);
