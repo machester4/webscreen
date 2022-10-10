@@ -72,8 +72,7 @@ export default {
     },
     handleMouseClick(e) {
       console.log("click");
-      const { offsetX, offsetY } = e;
-      this.rtcInstance.sendMouseClick(offsetX, offsetY, size);
+      this.rtcInstance.sendMouseClick();
     },
     handleDisconnect() {
       this.$router.go(-1);

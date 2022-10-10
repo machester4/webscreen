@@ -1,6 +1,9 @@
 <template>
   <div :class="bgcolor">
-    <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
+    <div
+      v-if="status != 'Connected'"
+      class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8"
+    >
       <div class="flex items-center justify-between flex-wrap">
         <div class="w-0 flex-1 flex items-center">
           <span
@@ -8,10 +11,6 @@
           >
             <SwitchVerticalIcon
               v-if="status === 'Connecting'"
-              class="w-6 h-6 text-white"
-            />
-            <ShieldCheckIcon
-              v-if="status === 'Connected'"
               class="w-6 h-6 text-white"
             />
             <ExclamationCircleIcon
@@ -46,14 +45,12 @@
 import {
   SwitchVerticalIcon,
   ExclamationCircleIcon,
-  ShieldCheckIcon,
 } from "@heroicons/vue/outline";
 export default {
   name: "StatusBanner",
   components: {
     SwitchVerticalIcon,
     ExclamationCircleIcon,
-    ShieldCheckIcon,
   },
   props: {
     status: {
@@ -75,9 +72,6 @@ export default {
       return "bg-gray-600";
     },
     bgcolorIcon() {
-      if (this.status === "Connected") {
-        return "bg-green-500";
-      }
       if (this.status === "Connecting") {
         return "bg-yellow-500";
       }
